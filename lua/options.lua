@@ -2,22 +2,64 @@
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
--- Set highlight on search
+vim.opt.guicursor = ""
+--vim.opt.tabstop = 4
+--vim.opt.softtabstop = 4
+--vim.opt.shiftwidth = 4
+--vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+
+vim.opt.wrap = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
 vim.o.hlsearch = false
+vim.opt.incsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
+vim.opt.nu = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+
+vim.cmd[[highlight ColorColumn ctermbg=255 guibg=#262626]]
+
+vim.diagnostic.config({
+  virtual_text = {
+    source = "always",  -- Or "if_many"
+  },
+  float = {
+    source = "always",  -- Or "if_many"
+  },
+})
+
+
+vim.api.nvim_create_augroup("AutoFormat", {})
+
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = "*.py",
+        group = "AutoFormat",
+        callback = function()
+            vim.cmd("silent !black --line-length=80 --quiet %")            
+            vim.cmd("edit")
+        end,
+    }
+)
+
+
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
