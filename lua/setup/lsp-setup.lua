@@ -117,7 +117,7 @@ require'lspconfig'.pylsp.setup{
         pylsp = {
             plugins = {
                 flake8 = {
-                    enabled = true,
+                    enabled = false,
                 }
             }
         }

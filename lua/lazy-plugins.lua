@@ -153,6 +153,9 @@ require('lazy').setup({
     name = "moonfly",
     lazy = false,
     priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("moonfly")
+    end,
   },
 
   -- "gc" to comment visual regions/lines
@@ -169,12 +172,8 @@ require('lazy').setup({
       -- requirements installed.
       {
         'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
       },
     },
   },

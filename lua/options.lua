@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd(
         pattern = "*.py",
         group = "AutoFormat",
         callback = function()
-            vim.cmd("silent !black --line-length=80 --quiet %")            
+            vim.cmd("silent !black --line-length=110 --quiet %")
             vim.cmd("edit")
         end,
     }
