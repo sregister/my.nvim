@@ -48,8 +48,14 @@ vim.api.nvim_create_autocmd(
         pattern = "*.py",
         group = "AutoFormat",
         callback = function()
-            vim.cmd("silent !black --line-length=110 --quiet %")
-            vim.cmd("edit")
+            -- if filename of open file does not contain substring 'splunk'
+            -- then format with black
+            --    vim.cmd("silent !black --quiet %")
+            --    vim.cmd("edit")
+            if not vim.fn.expand("%:t"):match("splunk") then
+                vim.cmd("silent !black --quiet %")
+                vim.cmd("edit")
+            end
         end,
     }
 )
