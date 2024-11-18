@@ -1,10 +1,10 @@
-config = function() require('copilot').setup({
-    suggestion = { enabled = false },
-    panel = { enabled = false },
-}) end
+-- config = function() require('copilot').setup({
+--     suggestion = { enabled = false },
+--     panel = { enabled = false },
+-- }) end
 
-
-config = function() require("CopilotChat").setup {
-  debug = true, -- Enable debugging
-  -- See Configuration section for rest
-} end
+-- Not being used in current setup because avante
+-- config = function() require("CopilotChat").setup {
+--   debug = true, -- Enable debugging
+--   -- See Configuration section for rest
+-- } end
