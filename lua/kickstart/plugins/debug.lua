@@ -12,12 +12,15 @@ return {
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
-   { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+    {"rcarriga/nvim-dap-ui",
+      dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
 
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
+    -- virtual text thing
+    'theHamsta/nvim-dap-virtual-text',
 
     -- Add your own debuggers here
     'mfussenegger/nvim-dap-python',
@@ -30,7 +33,7 @@ return {
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
       -- reasonable debug configurations
-      automatic_setup = true,
+      automatic_installation = true,
 
       -- You can provide additional configuration to the handlers,
       -- see mason-nvim-dap README for more information
@@ -38,10 +41,10 @@ return {
 
       -- You'll need to check that you have the required things installed
       -- online, please don't ask me how to install them :)
-      --ensure_installed = {
+      ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        --'delve',
-      --},
+        'python',
+      },
     }
 
     -- Basic debugging keymaps, feel free to change to your liking!

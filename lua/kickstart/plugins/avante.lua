@@ -8,9 +8,18 @@ return {
       provider = "copilot",
       auto_suggestions_provider = "copilot",
       -- add any opts here
+      vendors = {
+        ['amber-chat'] = {
+          __inherited_from = "openai",
+          api_key_name = "AMBER_CHAT_API_KEY",
+          endpoint = "https://amber-chat.apps1-ir-int.icloud.intel.com/api",
+          model = "amber",
+        },
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
+
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
