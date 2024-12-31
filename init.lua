@@ -17,4 +17,4 @@ require 'options'
 require 'keymaps'
 
 -- [[ Setup all plugins ]]
-require 'setup'
+--require 'setup'

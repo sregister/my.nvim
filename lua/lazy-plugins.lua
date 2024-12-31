@@ -1,4 +1,9 @@
 -- [[ Configure plugins ]]
+--
+
+
+
+-- a lua for loop
 require('lazy').setup({
 
 	

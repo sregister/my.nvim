@@ -28,37 +28,37 @@ vim.o.mouse = 'a'
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
-vim.cmd[[highlight ColorColumn ctermbg=255 guibg=#262626]]
+vim.cmd [[highlight ColorColumn ctermbg=255 guibg=#262626]]
 
 vim.diagnostic.config({
   virtual_text = {
-    source = "always",  -- Or "if_many"
+    source = "always",        -- Or "if_many"
   },
   float = {
-    source = "always",  -- Or "if_many"
+    source = "always", -- Or "if_many"
   },
 })
 
 
 vim.api.nvim_create_augroup("AutoFormat", {})
 
-vim.api.nvim_create_autocmd(
-    "BufWritePost",
-    {
-        pattern = "*.py",
-        group = "AutoFormat",
-        callback = function()
-            -- if filename of open file does not contain substring 'splunk'
-            -- then format with black
-            --    vim.cmd("silent !black --quiet %")
-            --    vim.cmd("edit")
-            if not vim.fn.expand("%:t"):match("splunk") then
-                vim.cmd("silent !black --quiet %")
-                vim.cmd("edit")
-            end
-        end,
-    }
-)
+--vim.api.nvim_create_autocmd(
+--    "BufWritePost",
+--    {
+--        pattern = "*.py",
+--        group = "AutoFormat",
+--        callback = function()
+--            -- if filename of open file does not contain substring 'splunk'
+--            -- then format with black
+--            --    vim.cmd("silent !black --quiet %")
+--            --    vim.cmd("edit")
+--            if not vim.fn.expand("%:t"):match("splunk") then
+--                vim.cmd("silent !black --quiet %")
+--                vim.cmd("edit")
+--            end
+--        end,
+--    }
+--)
 
 
 
