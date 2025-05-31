@@ -5,6 +5,16 @@
 
 -- a lua for loop
 require('lazy').setup({
+  {
+    "joshuavial/aider.nvim",
+    opts = {
+      -- your configuration comes here
+      -- if you don't want to use the default settings
+      auto_manage_context = true, -- automatically manage buffer context
+      default_bindings = true,    -- use default <leader>A keybindings
+      debug = false,              -- enable debug logging
+    },
+  },
 
 	
   require('kickstart.plugins.general'),
@@ -56,6 +66,8 @@ require('lazy').setup({
 	-- 	end,
 	-- },
   require('kickstart.plugins.copilot_cmp'),
+
+  --require('kickstart.plugins.codecompanion'),
 	-- {
 	-- 	"zbirenbaum/copilot-cmp",
 	-- 	after = { "copilot.lua" },
@@ -64,7 +76,7 @@ require('lazy').setup({
 	-- 	end
 	-- },
 
-  require('kickstart.plugins.avante'),
+  --require('kickstart.plugins.avante'),
 	-- {
 	-- 	"yetone/avante.nvim",
 	-- 	event = "VeryLazy",
@@ -303,6 +315,7 @@ require('lazy').setup({
   require('kickstart.plugins.comment'),
 	-- { 'numToStr/Comment.nvim', opts = {} },
 
+  --require('kickstart.plugins.snacks'),
 	-- Fuzzy Finder (files, lsp, etc)
   require('kickstart.plugins.telescope'),
 	-- {
